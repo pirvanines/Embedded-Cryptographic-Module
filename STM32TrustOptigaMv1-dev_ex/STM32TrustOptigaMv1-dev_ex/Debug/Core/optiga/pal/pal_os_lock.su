@@ -1,0 +1,6 @@
+../Core/optiga/pal/pal_os_lock.c:40:6:pal_os_lock_create	16	static
+../Core/optiga/pal/pal_os_lock.c:47:6:pal_os_lock_destroy	16	static
+../Core/optiga/pal/pal_os_lock.c:52:14:pal_os_lock_acquire	24	static
+../Core/optiga/pal/pal_os_lock.c:70:6:pal_os_lock_release	16	static
+../Core/optiga/pal/pal_os_lock.c:80:6:pal_os_lock_enter_critical_section	4	static
+../Core/optiga/pal/pal_os_lock.c:85:6:pal_os_lock_exit_critical_section	4	static

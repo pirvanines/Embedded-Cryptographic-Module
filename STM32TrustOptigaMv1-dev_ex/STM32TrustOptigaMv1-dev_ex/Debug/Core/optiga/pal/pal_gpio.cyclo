@@ -1,0 +1,4 @@
+../Core/optiga/pal/pal_gpio.c:42:14:pal_gpio_init	1
+../Core/optiga/pal/pal_gpio.c:52:14:pal_gpio_deinit	1
+../Core/optiga/pal/pal_gpio.c:62:6:pal_gpio_set_high	3
+../Core/optiga/pal/pal_gpio.c:72:6:pal_gpio_set_low	3

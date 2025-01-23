@@ -1,0 +1,9 @@
+../Core/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.c:195:21:ifx_i2c_dl_init	2
+../Core/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.c:219:21:ifx_i2c_dl_send_frame	3
+../Core/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.c:237:21:ifx_i2c_dl_receive_frame	2
+../Core/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.c:256:20:ifx_i2c_dl_calc_crc_byte	1
+../Core/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.c:271:20:ifx_i2c_dl_calc_crc	2
+../Core/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.c:284:31:ifx_i2c_dl_send_frame_internal	8
+../Core/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.c:348:31:ifx_i2c_dl_resync	1
+../Core/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.c:361:16:ifx_i2c_dl_resend_frame	5
+../Core/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.c:399:16:ifx_i2c_pl_event_handler	42

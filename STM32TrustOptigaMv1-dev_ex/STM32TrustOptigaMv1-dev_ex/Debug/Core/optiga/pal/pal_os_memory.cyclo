@@ -1,0 +1,5 @@
+../Core/optiga/pal/pal_os_memory.c:12:24:pal_os_malloc	1
+../Core/optiga/pal/pal_os_memory.c:16:24:pal_os_calloc	1
+../Core/optiga/pal/pal_os_memory.c:20:22:pal_os_free	1
+../Core/optiga/pal/pal_os_memory.c:24:22:pal_os_memcpy	1
+../Core/optiga/pal/pal_os_memory.c:28:22:pal_os_memset	1

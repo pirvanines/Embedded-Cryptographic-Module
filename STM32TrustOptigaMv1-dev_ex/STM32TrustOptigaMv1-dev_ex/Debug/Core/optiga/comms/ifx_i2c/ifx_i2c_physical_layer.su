@@ -1,0 +1,15 @@
+../Core/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.c:147:21:ifx_i2c_pl_init	16	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.c:182:21:ifx_i2c_pl_send_frame	24	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.c:199:21:ifx_i2c_pl_receive_frame	16	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.c:212:21:ifx_i2c_pl_write_slave_address	24	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.c:285:16:ifx_i2c_pl_read_register	16	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.c:304:16:ifx_i2c_pl_write_register	24	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.c:325:16:ifx_i2c_pl_status_poll_callback	16	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.c:331:31:ifx_i2c_pl_set_bit_rate	24	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.c:366:16:ifx_i2c_pl_negotiation_event_handler	56	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.c:533:16:ifx_i2c_pl_frame_event_handler	40	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.c:666:16:ifx_i2c_pal_poll_callback	24	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.c:684:16:ifx_i2c_pl_guard_time_callback	24	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.c:709:16:ifx_i2c_pl_pal_event_handler	24	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.c:741:16:ifx_i2c_pl_soft_reset	24	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.c:792:16:ifx_i2c_pl_pal_slave_addr_event_handler	16	static

@@ -1,0 +1,2 @@
+../Core/optiga/pal/pal_os_datastore.c:66:14:pal_os_datastore_write	6
+../Core/optiga/pal/pal_os_datastore.c:126:14:pal_os_datastore_read	6

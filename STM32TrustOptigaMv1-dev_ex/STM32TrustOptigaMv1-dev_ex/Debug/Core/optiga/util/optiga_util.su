@@ -1,0 +1,16 @@
+../Core/optiga/util/optiga_util.c:86:16:optiga_util_generic_event_handler	24	static
+../Core/optiga/util/optiga_util.c:95:16:optiga_util_reset_protection_level	16	static
+../Core/optiga/util/optiga_util.c:105:31:optiga_util_write_data_wrapper	32	static
+../Core/optiga/util/optiga_util.c:191:17:optiga_util_create	32	static
+../Core/optiga/util/optiga_util.c:229:21:optiga_util_destroy	24	static
+../Core/optiga/util/optiga_util.c:253:21:optiga_util_open_application	24	static
+../Core/optiga/util/optiga_util.c:301:21:optiga_util_close_application	24	static
+../Core/optiga/util/optiga_util.c:350:21:optiga_util_read_data	32	static
+../Core/optiga/util/optiga_util.c:405:21:optiga_util_read_metadata	32	static
+../Core/optiga/util/optiga_util.c:458:21:optiga_util_write_data	40	static
+../Core/optiga/util/optiga_util.c:483:21:optiga_util_write_metadata	32	static
+../Core/optiga/util/optiga_util.c:534:31:optiga_util_protected_update	32	static
+../Core/optiga/util/optiga_util.c:576:21:optiga_util_protected_update_start	40	static
+../Core/optiga/util/optiga_util.c:604:21:optiga_util_protected_update_continue	40	static
+../Core/optiga/util/optiga_util.c:630:21:optiga_util_protected_update_final	40	static
+../Core/optiga/util/optiga_util.c:656:21:optiga_util_update_count	32	static

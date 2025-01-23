@@ -1,0 +1,6 @@
+../Core/optiga/pal/pal_os_event.c:50:6:pal_os_event_start	24	static
+../Core/optiga/pal/pal_os_event.c:59:6:pal_os_event_stop	16	static
+../Core/optiga/pal/pal_os_event.c:64:18:pal_os_event_create	16	static
+../Core/optiga/pal/pal_os_event.c:73:6:pal_os_event_trigger_registered_callback	16	static
+../Core/optiga/pal/pal_os_event.c:92:6:pal_os_event_register_callback_oneshot	24	static
+../Core/optiga/pal/pal_os_event.c:110:6:pal_os_event_destroy	16	static

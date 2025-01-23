@@ -1,0 +1,4 @@
+../Core/optiga/common/optiga_lib_common.c:41:6:optiga_common_set_uint16	16	static
+../Core/optiga/common/optiga_lib_common.c:47:6:optiga_common_set_uint32	16	static
+../Core/optiga/common/optiga_lib_common.c:55:10:optiga_common_get_uint32	24	static
+../Core/optiga/common/optiga_lib_common.c:64:6:optiga_common_get_uint16	16	static

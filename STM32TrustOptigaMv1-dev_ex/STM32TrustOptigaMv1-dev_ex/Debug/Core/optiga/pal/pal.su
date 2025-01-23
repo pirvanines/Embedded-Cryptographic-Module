@@ -1,0 +1,2 @@
+../Core/optiga/pal/pal.c:42:14:pal_init	4	static
+../Core/optiga/pal/pal.c:48:14:pal_deinit	4	static

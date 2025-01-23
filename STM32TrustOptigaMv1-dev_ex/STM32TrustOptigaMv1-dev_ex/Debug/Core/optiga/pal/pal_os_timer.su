@@ -1,0 +1,5 @@
+../Core/optiga/pal/pal_os_timer.c:43:10:pal_os_timer_get_time_in_microseconds	4	static
+../Core/optiga/pal/pal_os_timer.c:52:10:pal_os_timer_get_time_in_milliseconds	4	static
+../Core/optiga/pal/pal_os_timer.c:59:6:pal_os_timer_delay_in_milliseconds	32	static
+../Core/optiga/pal/pal_os_timer.c:79:14:pal_timer_init	4	static
+../Core/optiga/pal/pal_os_timer.c:84:14:pal_timer_deinit	4	static

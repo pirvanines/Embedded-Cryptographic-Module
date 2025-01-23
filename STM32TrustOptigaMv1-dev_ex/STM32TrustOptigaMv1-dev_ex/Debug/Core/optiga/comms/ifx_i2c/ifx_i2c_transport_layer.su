@@ -1,0 +1,9 @@
+../Core/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.c:95:21:ifx_i2c_tl_init	16	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.c:115:21:ifx_i2c_tl_transceive	32	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.c:154:31:ifx_i2c_tl_resend_packets	16	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.c:168:19:ifx_i2c_tl_calculate_pctr	24	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.c:196:31:ifx_i2c_tl_send_next_fragment	24	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.c:219:31:ifx_i2c_tl_send_chaining_error	24	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.c:229:31:ifx_i2c_tl_check_chaining_error	24	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.c:247:32:presence_bit_check	24	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.c:278:16:ifx_i2c_dl_event_handler	40	static

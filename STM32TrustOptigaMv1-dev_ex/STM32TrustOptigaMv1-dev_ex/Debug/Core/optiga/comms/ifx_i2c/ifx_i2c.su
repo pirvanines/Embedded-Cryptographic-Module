@@ -1,0 +1,7 @@
+../Core/optiga/comms/ifx_i2c/ifx_i2c.c:79:21:ifx_i2c_open	24	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c.c:109:21:ifx_i2c_reset	24	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c.c:131:21:ifx_i2c_transceive	40	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c.c:169:21:ifx_i2c_close	24	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c.c:208:21:ifx_i2c_set_slave_address	24	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c.c:227:6:ifx_i2c_tl_event_handler	24	static
+../Core/optiga/comms/ifx_i2c/ifx_i2c.c:284:31:ifx_i2c_init	24	static

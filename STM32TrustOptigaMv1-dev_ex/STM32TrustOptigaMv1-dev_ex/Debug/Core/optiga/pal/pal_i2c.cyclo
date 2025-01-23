@@ -1,0 +1,13 @@
+../Core/optiga/pal/pal_i2c.c:50:21:pal_i2c_acquire	3
+../Core/optiga/pal/pal_i2c.c:67:13:pal_i2c_release	1
+../Core/optiga/pal/pal_i2c.c:76:6:invoke_upper_layer_callback	1
+../Core/optiga/pal/pal_i2c.c:92:6:i2c_master_end_of_transmit_callback	1
+../Core/optiga/pal/pal_i2c.c:97:6:i2c_master_end_of_receive_callback	1
+../Core/optiga/pal/pal_i2c.c:102:6:i2c_master_error_detected_callback	1
+../Core/optiga/pal/pal_i2c.c:107:6:i2c_master_nack_received_callback	1
+../Core/optiga/pal/pal_i2c.c:112:6:i2c_master_arbitration_lost_callback	1
+../Core/optiga/pal/pal_i2c.c:118:14:pal_i2c_init	1
+../Core/optiga/pal/pal_i2c.c:124:14:pal_i2c_deinit	1
+../Core/optiga/pal/pal_i2c.c:130:14:pal_i2c_write	3
+../Core/optiga/pal/pal_i2c.c:182:14:pal_i2c_read	3
+../Core/optiga/pal/pal_i2c.c:222:14:pal_i2c_set_bitrate	5

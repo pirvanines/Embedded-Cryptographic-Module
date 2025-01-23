@@ -1,0 +1,4 @@
+../Core/optiga/pal/pal_logger.c:39:14:pal_logger_init	1
+../Core/optiga/pal/pal_logger.c:52:14:pal_logger_deinit	1
+../Core/optiga/pal/pal_logger.c:65:14:pal_logger_write	1
+../Core/optiga/pal/pal_logger.c:78:14:pal_logger_read	1

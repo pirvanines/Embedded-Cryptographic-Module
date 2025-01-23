@@ -1,0 +1,10 @@
+../Core/optiga/comms/optiga_comms_ifx_i2c.c:67:18:optiga_comms_create	24	static
+../Core/optiga/comms/optiga_comms_ifx_i2c.c:94:6:optiga_comms_destroy	16	static
+../Core/optiga/comms/optiga_comms_ifx_i2c.c:110:21:optiga_comms_set_callback_handler	16	static
+../Core/optiga/comms/optiga_comms_ifx_i2c.c:116:21:optiga_comms_set_callback_context	16	static
+../Core/optiga/comms/optiga_comms_ifx_i2c.c:125:21:optiga_comms_open	24	static
+../Core/optiga/comms/optiga_comms_ifx_i2c.c:146:21:optiga_comms_reset	24	static
+../Core/optiga/comms/optiga_comms_ifx_i2c.c:163:21:optiga_comms_transceive	40	static
+../Core/optiga/comms/optiga_comms_ifx_i2c.c:193:21:optiga_comms_close	24	static
+../Core/optiga/comms/optiga_comms_ifx_i2c.c:213:31:check_optiga_comms_state	24	static
+../Core/optiga/comms/optiga_comms_ifx_i2c.c:225:16:ifx_i2c_event_handler	24	static

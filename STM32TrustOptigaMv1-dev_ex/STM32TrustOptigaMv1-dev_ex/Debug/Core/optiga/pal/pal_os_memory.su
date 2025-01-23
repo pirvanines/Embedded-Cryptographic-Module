@@ -1,0 +1,5 @@
+../Core/optiga/pal/pal_os_memory.c:12:24:pal_os_malloc	16	static
+../Core/optiga/pal/pal_os_memory.c:16:24:pal_os_calloc	16	static
+../Core/optiga/pal/pal_os_memory.c:20:22:pal_os_free	16	static
+../Core/optiga/pal/pal_os_memory.c:24:22:pal_os_memcpy	24	static
+../Core/optiga/pal/pal_os_memory.c:28:22:pal_os_memset	24	static
