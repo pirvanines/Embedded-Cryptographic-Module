@@ -278,7 +278,7 @@ int main(void)
 		//Wait until the operation is completed
 	}
 
-	// ================================================= Genereaza perechea de chei ================================================
+	// ============================================== Genereaza perechea de chei ==============================================
 	optiga_lib_status = OPTIGA_LIB_BUSY;
 	optiga_key_id = OPTIGA_KEY_ID_E0FC;
 
@@ -300,7 +300,7 @@ int main(void)
 		//Wait until the operation is completed
 	}
 
-	// ================================================ Generarea semnaturilor cu SK ================================================
+	// ============================================== Generarea semnaturilor cu SK ==============================================
 	uint8_t(*digest)[32] = &L7_data.msg_dig0;
 	uint8_t* signature = L7_data.sig_dig0;
 	uint16_t signature_length = sizeof(L7_data.sig_dig0);
@@ -332,7 +332,7 @@ int main(void)
 		digest++;
 		signature += 128;
 	}
-	// ================================================ Criptarea datelor ==============================================
+	// ============================================== Criptarea datelor ==============================================
 	// 
 	// 
 	// ---------------------------- Initializari pentru criptare ----------------------------
@@ -392,7 +392,7 @@ int main(void)
 
 	while (rep--) {
 
-		// ----------------------- Decriptare bloc de date cu cheia publica --------------------
+		// ----------------------- Decriptare bloc de date cu cheia publica -------------------
 		optiga_lib_status = OPTIGA_LIB_BUSY;
 
 		return_status = optiga_crypt_rsa_decrypt_and_export(me_crypt,
@@ -422,9 +422,9 @@ int main(void)
 
 	// ============================================== Verificarea semnaturii cu SK ==============================================
 
-	uint8_t(*digest)[32] = &L7_data.msg_dig0;
-	uint8_t* signature = L7_data.sig_dig0;
-	uint16_t signature_length = sizeof(L7_data.sig_dig0);
+	digest = &L7_data.msg_dig0;
+	signature = L7_data.sig_dig0;
+	signature_length = sizeof(L7_data.sig_dig0);
 
 	rep = 2;
 	while (rep--)
@@ -463,10 +463,10 @@ int main(void)
 	to_hash.length = 256;
 
 	hash_out = &test.digest1;
-	uint8_t pos = 2;
+	uint16_t pos = 2;
 
 	// ----------------------- Copierea datelor in auxiliar ------------------------
-	for (uint8_t index = 0; index < 512; index++)
+	for (uint16_t index = 0; index < 512; index++)
 	{
 		test.data[index] = L7_data.msg[index];
 	}
@@ -546,9 +546,9 @@ int main(void)
 
 	hash_out = &test.digest1;
 
-	uint8_t pos1 = 3;
-	uint8_t pos2 = 9;
-	uint8_t pos3 = 100;
+	uint16_t pos1 = 3;
+	uint16_t pos2 = 9;
+	uint16_t pos3 = 100;
 
 	// --------------------- Restaurarea datelor in auxiliar -----------------------
 	test.data[pos] = test.data[pos] ^ 0x01;
@@ -632,7 +632,7 @@ int main(void)
 
 	hash_out = &test.digest1;
 
-	uint8_t startPos = 19;
+	uint16_t startPos = 19;
 
 	// --------------------- Restaurarea datelor in auxiliar -----------------------
 	auxiliar = test.data[pos3];
