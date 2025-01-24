@@ -148,11 +148,6 @@ static void optiga_crypt_callback(void* context, optiga_lib_status_t return_stat
 	}
 }
 
-void calculate_digest()
-{
-
-}
-
 /* USER CODE END 0 */
 
 /**
@@ -204,7 +199,7 @@ int main(void)
 		// break;
 	}
 
-	// ============================================== Numere random si digest ==============================================
+	// ============================================== Generate data and digest ==============================================
 
 	hash_data_from_host_t to_hash;
 	to_hash.buffer = (uint8_t*)&L7_data.msg;
@@ -217,7 +212,7 @@ int main(void)
 
 	while (rep--) {
 
-		// ---------------------------- Initializare numere random ----------------------------
+		// ------------------------------ Initialize data block ----------------------------
 		optiga_lib_status = OPTIGA_LIB_BUSY;
 
 		return_status = optiga_crypt_random(me_crypt,
@@ -235,7 +230,7 @@ int main(void)
 			//Wait until the operation is completed
 		}
 
-		// ---------------------------- Generare semnatura SHA256 ----------------------------
+		// ------------------------------ Sign data with SHA256 ----------------------------
 		optiga_lib_status = OPTIGA_LIB_BUSY;
 
 		return_status = optiga_crypt_hash(me_crypt,
@@ -255,13 +250,13 @@ int main(void)
 			//Wait until the operation is completed
 		}
 
-		// ------------------------------ Actualizare pointeri -------------------------------
+		// ------------------------- Next block of data to setup ----------------------------
 		rnd_buff++;
 		to_hash.buffer += 256;
 		hash_out++;
 	}
 
-	// ============================================== Metadatele pentru cheia privata ==============================================
+	// ============================================== Metadata to generate the private key ==============================================
 	optiga_lib_status = OPTIGA_LIB_BUSY;
 	optiga_oid = 0xE0FC;
 	return_status = optiga_util_write_metadata(me_util,
@@ -278,7 +273,7 @@ int main(void)
 		//Wait until the operation is completed
 	}
 
-	// ============================================== Genereaza perechea de chei ==============================================
+	// ============================================== Generate the private and public keys ==============================================
 	optiga_lib_status = OPTIGA_LIB_BUSY;
 	optiga_key_id = OPTIGA_KEY_ID_E0FC;
 
@@ -300,7 +295,7 @@ int main(void)
 		//Wait until the operation is completed
 	}
 
-	// ============================================== Generarea semnaturilor cu SK ==============================================
+	// ================================================ Sign the digest with private key ================================================
 	uint8_t(*digest)[32] = &L7_data.msg_dig0;
 	uint8_t* signature = L7_data.sig_dig0;
 	uint16_t signature_length = sizeof(L7_data.sig_dig0);
@@ -332,10 +327,10 @@ int main(void)
 		digest++;
 		signature += 128;
 	}
-	// ============================================== Criptarea datelor ==============================================
+	// ============================================== Encrypt the message ==============================================
 	// 
 	// 
-	// ---------------------------- Initializari pentru criptare ----------------------------
+	// ------------------------------------ Initialize data ---------------------------------
 	encryption_scheme = OPTIGA_RSAES_PKCS1_V15;
 	public_key_from_host.public_key = public_key;
 	public_key_from_host.length = public_key_length;
@@ -351,7 +346,7 @@ int main(void)
 
 	while (rep--) {
 
-		// ------------------------ Criptare bloc de date cu cheia publica -------------------
+		// ------------------------ Encrypt the data with public key --------------------------
 		optiga_lib_status = OPTIGA_LIB_BUSY;
 
 		return_status = optiga_crypt_rsa_encrypt_message(me_crypt,
@@ -377,10 +372,10 @@ int main(void)
 		data_to_enc += enc_qnt;
 		enc_data += 128;
 	}
-	// ============================================== Decriptarea datelor ==============================================
+	// ============================================== Data decryption ==============================================
 	// 
 	// 
-	// ---------------------------- Initializari pentru decriptare ----------------------------
+	// ---------------------------- Initialize data for decryption ----------------------------
 	uint8_t* dec_data = &L7_data.RSA_dec;
 	uint32_t dec_qnt = 100;
 
@@ -392,7 +387,7 @@ int main(void)
 
 	while (rep--) {
 
-		// ----------------------- Decriptare bloc de date cu cheia publica -------------------
+		// ----------------------- Decrypt data using the public key --------------------------
 		optiga_lib_status = OPTIGA_LIB_BUSY;
 
 		return_status = optiga_crypt_rsa_decrypt_and_export(me_crypt,
@@ -420,7 +415,7 @@ int main(void)
 	}
 
 
-	// ============================================== Verificarea semnaturii cu SK ==============================================
+	// ============================================== Verify the signature with private key ==============================================
 
 	digest = &L7_data.msg_dig0;
 	signature = L7_data.sig_dig0;
@@ -431,8 +426,6 @@ int main(void)
 	{
 		optiga_lib_status = OPTIGA_LIB_BUSY;
 
-		// digest[0] = 123; // Try this to trigger Signature verification failure
-
 		return_status = optiga_crypt_rsa_verify(me_crypt,
 			OPTIGA_RSASSA_PKCS1_V15_SHA256,
 			digest,
@@ -457,7 +450,7 @@ int main(void)
 		signature += 128;
 	}
 
-	// ============================================== Modificarea mesajului si verificarea semnaturii ==============================================
+	// ================================================ Modifying the message and check the signature ==============================================
 	// ==================================================================== (1) ====================================================================
 	to_hash.buffer = (uint8_t*)&test.data;
 	to_hash.length = 256;
@@ -465,20 +458,20 @@ int main(void)
 	hash_out = &test.digest1;
 	uint16_t pos = 2;
 
-	// ----------------------- Copierea datelor in auxiliar ------------------------
+	// ------------------- Copy the original data in test structure ----------------
 	for (uint16_t index = 0; index < 512; index++)
 	{
 		test.data[index] = L7_data.msg[index];
 	}
 
-	// ---------------------------- Modificarea datelor ----------------------------
+	// ------------------------------- Modify the data -----------------------------
 	test.data[pos] = test.data[pos] ^ 0x01;
 
-	// ============================= Calcularea digest =============================
+	// ============================== Calculate digest =============================
 	rep = 2;
 	while (rep--)
 	{
-		// --------------------- Generare semnatura SHA256 -------------------------
+		// ---------------------- Generate digest - SHA256 -------------------------
 		optiga_lib_status = OPTIGA_LIB_BUSY;
 
 		return_status = optiga_crypt_hash(me_crypt,
@@ -498,12 +491,12 @@ int main(void)
 			//Wait until the operation is completed
 		}
 
-		// ------------------------ Actualizare pointeri ---------------------------
+		// -------------------- Next block of data to setup -------------------------
 		to_hash.buffer += 256;
 		hash_out++;
 	}
 
-	// ============================= Verificarea semnaturii =============================
+	// ============================= Check the signature ============================
 	digest = &test.digest1;
 	signature = &L7_data.sig_dig0;
 	signature_length = sizeof(L7_data.sig_dig0);
@@ -512,8 +505,6 @@ int main(void)
 	while (rep--)
 	{
 		optiga_lib_status = OPTIGA_LIB_BUSY;
-
-		// digest[0] = 123; // Try this to trigger Signature verification failure
 
 		return_status = optiga_crypt_rsa_verify(me_crypt,
 			OPTIGA_RSASSA_PKCS1_V15_SHA256,
@@ -539,7 +530,7 @@ int main(void)
 		signature += 128;
 	}
 
-	// ============================================== Modificarea mesajului si verificarea semnaturii ==============================================
+	// ================================================ Modifying the message and check the signature ==============================================
 	// ==================================================================== (2) ====================================================================
 	to_hash.buffer = (uint8_t*)&test.data;
 	to_hash.length = 256;
@@ -550,21 +541,21 @@ int main(void)
 	uint16_t pos2 = 9;
 	uint16_t pos3 = 100;
 
-	// --------------------- Restaurarea datelor in auxiliar -----------------------
+	// --------------------- Data restoration for the next test --------------------
 	test.data[pos] = test.data[pos] ^ 0x01;
 
-	// ---------------------------- Modificarea datelor ----------------------------
+	// ------------------------------- Modify the data -----------------------------
 	uint8_t auxiliar;
 	auxiliar = test.data[pos1];
 	test.data[pos1] = test.data[pos2];
 	test.data[pos2] = test.data[pos3];
 	test.data[pos3] = auxiliar;
 
-	// ============================= Calcularea digest =============================
+	// ============================== Calculate digest =============================
 	rep = 2;
 	while (rep--)
 	{
-		// --------------------- Generare semnatura SHA256 -------------------------
+		// ---------------------- Generate digest - SHA256 -------------------------
 		optiga_lib_status = OPTIGA_LIB_BUSY;
 
 		return_status = optiga_crypt_hash(me_crypt,
@@ -584,12 +575,12 @@ int main(void)
 			//Wait until the operation is completed
 		}
 
-		// ------------------------ Actualizare pointeri ---------------------------
+		// -------------------- Next block of data to setup -------------------------
 		to_hash.buffer += 256;
 		hash_out++;
 	}
 
-	// ============================= Verificarea semnaturii =============================
+	// ============================= Check the signature =============================
 	digest = &test.digest1;
 	signature = &L7_data.sig_dig0;
 	signature_length = sizeof(L7_data.sig_dig0);
@@ -598,8 +589,6 @@ int main(void)
 	while (rep--)
 	{
 		optiga_lib_status = OPTIGA_LIB_BUSY;
-
-		// digest[0] = 123; // Try this to trigger Signature verification failure
 
 		return_status = optiga_crypt_rsa_verify(me_crypt,
 			OPTIGA_RSASSA_PKCS1_V15_SHA256,
@@ -625,7 +614,7 @@ int main(void)
 		signature += 128;
 	}
 
-	// ============================================== Modificarea mesajului si verificarea semnaturii ==============================================
+	// ================================================ Modifying the message and check the signature ==============================================
 	// ==================================================================== (3) ====================================================================
 	to_hash.buffer = (uint8_t*)&test.data;
 	to_hash.length = 256;
@@ -634,23 +623,23 @@ int main(void)
 
 	uint16_t startPos = 19;
 
-	// --------------------- Restaurarea datelor in auxiliar -----------------------
+	// --------------------- Data restoration for the next test --------------------
 	auxiliar = test.data[pos3];
 	test.data[pos3] = test.data[pos2];
 	test.data[pos2] = test.data[pos1];
 	test.data[pos1] = auxiliar;
 
-	// ---------------------------- Modificarea datelor ----------------------------
+	// ------------------------------- Modify the data -----------------------------
 	for (uint8_t index = startPos; index < startPos + 15; index++)
 	{
 		test.data[index] = 0;
 	}
 
-	// ============================= Calcularea digest =============================
+	// ============================== Calculate digest =============================
 	rep = 2;
 	while (rep--)
 	{
-		// --------------------- Generare semnatura SHA256 -------------------------
+		// ---------------------- Generate digest - SHA256 -------------------------
 		optiga_lib_status = OPTIGA_LIB_BUSY;
 
 		return_status = optiga_crypt_hash(me_crypt,
@@ -670,12 +659,12 @@ int main(void)
 			//Wait until the operation is completed
 		}
 
-		// ------------------------ Actualizare pointeri ---------------------------
+		// -------------------- Next block of data to setup -------------------------
 		to_hash.buffer += 256;
 		hash_out++;
 	}
 
-	// ============================= Verificarea semnaturii =============================
+	// ============================= Check the signature =============================
 	digest = &test.digest1;
 	signature = &L7_data.sig_dig0;
 	signature_length = sizeof(L7_data.sig_dig0);
@@ -684,8 +673,6 @@ int main(void)
 	while (rep--)
 	{
 		optiga_lib_status = OPTIGA_LIB_BUSY;
-
-		// digest[0] = 123; // Try this to trigger Signature verification failure
 
 		return_status = optiga_crypt_rsa_verify(me_crypt,
 			OPTIGA_RSASSA_PKCS1_V15_SHA256,
