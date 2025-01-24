@@ -21,4 +21,5 @@ To observe the communication between the *dedicated security chip* and *STM32F40
 To test this project the same hardware configuration is needed as it was implemented for. Because of that i will describe the workflow of my project with the state diagram presented bellow.
 
 
-![State diagram](https://github.com/user-attachments/assets/10fd0850-e942-4b74-a56e-59c1f88e86a7)
+![State diagram](https://github.com/user-attachments/assets/52c347e2-8fc1-47ce-a533-c447d6fae460)
+
