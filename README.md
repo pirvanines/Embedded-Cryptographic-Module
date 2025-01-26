@@ -23,3 +23,6 @@ To test this project the same hardware configuration is needed as it was impleme
 
 ![State diagram](https://github.com/user-attachments/assets/52c347e2-8fc1-47ce-a533-c447d6fae460)
 
+## Contributing
+
+If you'd like to contribute, please fork the repository and open a pull request to the `main` branch.
