@@ -1,4 +1,4 @@
-# Hardware cybersecurity project
+# Embedded Cryptographic Module using RSA and SHA256
 
 ## Description
 
